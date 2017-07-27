@@ -66,6 +66,7 @@ Partial Class Splash
         Me.Controls.Add(Me.imgFindProg)
         Me.Name = "Splash"
         Me.Text = "Splash"
+        Me.TopMost = True
         CType(Me.imgFindProg, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
