@@ -22,8 +22,29 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.btnTmp = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'btnTmp
+        '
+        Me.btnTmp.Location = New System.Drawing.Point(12, 12)
+        Me.btnTmp.Name = "btnTmp"
+        Me.btnTmp.Size = New System.Drawing.Size(75, 23)
+        Me.btnTmp.TabIndex = 0
+        Me.btnTmp.Text = "Button1"
+        Me.btnTmp.UseVisualStyleBackColor = True
+        '
+        'Main
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.Controls.Add(Me.btnTmp)
+        Me.Name = "Main"
         Me.Text = "Main"
+        Me.TopMost = True
+        Me.ResumeLayout(False)
+
     End Sub
+    Friend WithEvents btnTmp As System.Windows.Forms.Button
 End Class

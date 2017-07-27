@@ -1,5 +1,5 @@
 ﻿Public Class Splash
-    Public proghandle As IntPtr
+    Public Property proghandle As IntPtr
     Private prevhandle As IntPtr
     Private prevrect As Rect
 
@@ -64,6 +64,15 @@
     Private Sub imgFindProg_MouseUp(sender As Object, e As MouseEventArgs) Handles imgFindProg.MouseUp
         If e.Button = Windows.Forms.MouseButtons.Left Then
             drawWindowFrame()
+        End If
+    End Sub
+
+    Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+        If proghandle.Equals(IntPtr.Zero) Then
+            MsgBox("Woah there, you haven't selected the PDF viewer.")
+        Else
+            Main.Show()
+            Me.Hide()
         End If
     End Sub
 End Class
