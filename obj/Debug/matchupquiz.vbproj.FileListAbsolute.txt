@@ -13,3 +13,11 @@ C:\academic\programming\github\matchupquiz\bin\Debug\matchupquiz.exe.config
 C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.exe
 C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.xml
 C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.pdb
+C:\academic\programming\github\matchupquiz\bin\Debug\matchupquiz.exe
+C:\academic\programming\github\matchupquiz\bin\Debug\matchupquiz.pdb
+C:\academic\programming\github\matchupquiz\bin\Debug\matchupquiz.xml
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Form1.resources
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Form2.resources
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Resources.resources
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Splash.resources
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.vbproj.GenerateResource.Cache
