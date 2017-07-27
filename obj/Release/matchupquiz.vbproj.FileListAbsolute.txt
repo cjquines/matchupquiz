@@ -1,0 +1,10 @@
+C:\academic\programming\github\matchupquiz\matchupquiz\bin\Release\matchupquiz.exe.config
+C:\academic\programming\github\matchupquiz\matchupquiz\bin\Release\matchupquiz.exe
+C:\academic\programming\github\matchupquiz\matchupquiz\bin\Release\matchupquiz.pdb
+C:\academic\programming\github\matchupquiz\matchupquiz\bin\Release\matchupquiz.xml
+C:\academic\programming\github\matchupquiz\matchupquiz\obj\Release\matchupquiz.Form1.resources
+C:\academic\programming\github\matchupquiz\matchupquiz\obj\Release\matchupquiz.Resources.resources
+C:\academic\programming\github\matchupquiz\matchupquiz\obj\Release\matchupquiz.vbproj.GenerateResource.Cache
+C:\academic\programming\github\matchupquiz\matchupquiz\obj\Release\matchupquiz.exe
+C:\academic\programming\github\matchupquiz\matchupquiz\obj\Release\matchupquiz.xml
+C:\academic\programming\github\matchupquiz\matchupquiz\obj\Release\matchupquiz.pdb
