@@ -38,7 +38,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(919, 118)
         Me.Controls.Add(Me.btnTmp)
         Me.Name = "Main"
         Me.Text = "Main"
