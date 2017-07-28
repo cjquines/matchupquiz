@@ -44,6 +44,8 @@ Partial Class Splash
         Me.btnKeys23 = New System.Windows.Forms.Button()
         Me.btnKeys24 = New System.Windows.Forms.Button()
         Me.btnKeys20 = New System.Windows.Forms.Button()
+        Me.txtPlayer1 = New System.Windows.Forms.TextBox()
+        Me.txtPlayer2 = New System.Windows.Forms.TextBox()
         CType(Me.imgFindProg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -129,7 +131,7 @@ Partial Class Splash
         '
         'txtNum
         '
-        Me.txtNum.Location = New System.Drawing.Point(366, 197)
+        Me.txtNum.Location = New System.Drawing.Point(365, 190)
         Me.txtNum.Name = "txtNum"
         Me.txtNum.Size = New System.Drawing.Size(100, 20)
         Me.txtNum.TabIndex = 5
@@ -224,11 +226,27 @@ Partial Class Splash
         Me.btnKeys20.Text = "Button1"
         Me.btnKeys20.UseVisualStyleBackColor = True
         '
+        'txtPlayer1
+        '
+        Me.txtPlayer1.Location = New System.Drawing.Point(232, 206)
+        Me.txtPlayer1.Name = "txtPlayer1"
+        Me.txtPlayer1.Size = New System.Drawing.Size(100, 20)
+        Me.txtPlayer1.TabIndex = 7
+        '
+        'txtPlayer2
+        '
+        Me.txtPlayer2.Location = New System.Drawing.Point(357, 216)
+        Me.txtPlayer2.Name = "txtPlayer2"
+        Me.txtPlayer2.Size = New System.Drawing.Size(100, 20)
+        Me.txtPlayer2.TabIndex = 8
+        '
         'Splash
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(523, 316)
+        Me.Controls.Add(Me.txtPlayer2)
+        Me.Controls.Add(Me.txtPlayer1)
         Me.Controls.Add(Me.btnKeys20)
         Me.Controls.Add(Me.btnKeys24)
         Me.Controls.Add(Me.btnKeys21)
@@ -275,4 +293,6 @@ Partial Class Splash
     Friend WithEvents btnKeys23 As System.Windows.Forms.Button
     Friend WithEvents btnKeys24 As System.Windows.Forms.Button
     Friend WithEvents btnKeys20 As System.Windows.Forms.Button
+    Friend WithEvents txtPlayer1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPlayer2 As System.Windows.Forms.TextBox
 End Class

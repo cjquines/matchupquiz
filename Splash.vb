@@ -102,8 +102,10 @@
         recRight.BackColor = cright
         recWait.BackColor = cwait
         recWrong.BackColor = cwrong
-        txtTime.Text = timeq
+        txtPlayer1.Text = player1
+        txtPlayer2.Text = player2
         txtNum.Text = numq
+        txtTime.Text = timeq
     End Sub
 
     Private Sub colorReset()
@@ -127,6 +129,11 @@
         keys2(4) = Keys.None
     End Sub
 
+    Private Sub playerReset()
+        player1 = "Player1"
+        player2 = "Player2"
+    End Sub
+
     Private Sub qsReset()
         timeq = 45
         numq = 5
@@ -136,47 +143,24 @@
         colorReset()
         keysReset()
         qsReset()
-        player1 = "Player1"
-        player2 = "Player2"
+        playerReset()
         redraw()
     End Sub
 
-    Private Sub recBG_Click(sender As Object, e As EventArgs) Handles recBG.Click
-        clrDialog.ShowDialog()
-        cbg = clrDialog.Color
-        recBG.BackColor = cbg
+    Private Sub txtPlayer1_TextChanged(sender As Object, e As EventArgs) Handles txtPlayer1.TextChanged
+        player1 = txtPlayer1.Text ' validate
     End Sub
 
-    Private Sub recFG_Click(sender As Object, e As EventArgs) Handles recFG.Click
-        clrDialog.ShowDialog()
-        cfg = clrDialog.Color
-        recFG.BackColor = cfg
-    End Sub
-
-    Private Sub recRight_Click(sender As Object, e As EventArgs) Handles recRight.Click
-        clrDialog.ShowDialog()
-        cright = clrDialog.Color
-        recRight.BackColor = cright
-    End Sub
-
-    Private Sub recWait_Click(sender As Object, e As EventArgs) Handles recWait.Click
-        clrDialog.ShowDialog()
-        cwait = clrDialog.Color
-        recWait.BackColor = cwait
-    End Sub
-
-    Private Sub recWrong_Click(sender As Object, e As EventArgs) Handles recWrong.Click
-        clrDialog.ShowDialog()
-        cwrong = clrDialog.Color
-        recWrong.BackColor = cwrong
-    End Sub
-
-    Private Sub txtTime_TextChanged(sender As Object, e As EventArgs) Handles txtTime.TextChanged
-        timeq = Val(txtTime.Text) ' check if integer >:(
+    Private Sub txtPlayer2_TextChanged(sender As Object, e As EventArgs) Handles txtPlayer2.TextChanged
+        player2 = txtPlayer2.Text ' validate
     End Sub
 
     Private Sub txtNum_TextChanged(sender As Object, e As EventArgs) Handles txtNum.TextChanged
         numq = Val(txtNum.Text) ' check if integer >:(
+    End Sub
+
+    Private Sub txtTime_TextChanged(sender As Object, e As EventArgs) Handles txtTime.TextChanged
+        timeq = Val(txtTime.Text) ' check if integer >:(
     End Sub
 
     Private Sub btnKeys10_Click(sender As Object, e As EventArgs) Handles btnKeys10.Click
@@ -267,5 +251,35 @@
     Private Sub btnkeys24_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys24.KeyDown
         keys2(4) = e.KeyCode
         btnKeys24.Text = keys2(4).ToString()
+    End Sub
+
+    Private Sub recBG_Click(sender As Object, e As EventArgs) Handles recBG.Click
+        clrDialog.ShowDialog()
+        cbg = clrDialog.Color
+        recBG.BackColor = cbg
+    End Sub
+
+    Private Sub recFG_Click(sender As Object, e As EventArgs) Handles recFG.Click
+        clrDialog.ShowDialog()
+        cfg = clrDialog.Color
+        recFG.BackColor = cfg
+    End Sub
+
+    Private Sub recRight_Click(sender As Object, e As EventArgs) Handles recRight.Click
+        clrDialog.ShowDialog()
+        cright = clrDialog.Color
+        recRight.BackColor = cright
+    End Sub
+
+    Private Sub recWait_Click(sender As Object, e As EventArgs) Handles recWait.Click
+        clrDialog.ShowDialog()
+        cwait = clrDialog.Color
+        recWait.BackColor = cwait
+    End Sub
+
+    Private Sub recWrong_Click(sender As Object, e As EventArgs) Handles recWrong.Click
+        clrDialog.ShowDialog()
+        cwrong = clrDialog.Color
+        recWrong.BackColor = cwrong
     End Sub
 End Class
