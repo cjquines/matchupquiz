@@ -1,7 +1,5 @@
 ﻿Public Class Splash
-    ' add button to reset configs
-    ' input validation
-    ' work on UI
+    ' validate input data
 
     Public cbg, cfg, cright, cwait, cwrong As Color
     Public keys1(5), keys2(5) As Keys
@@ -53,7 +51,7 @@
     Private Sub imgFindProg_MouseMove(sender As Object, e As MouseEventArgs) Handles imgFindProg.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             Dim point As New PointAPI(Cursor.Position.X, Cursor.Position.Y)
-            Dim caption As New System.Text.StringBuilder(1024)
+            Dim caption As New System.Text.StringBuilder(50)
             proghandle = recurseParent(WindowFromPoint(point))
             GetWindowText(proghandle, caption, caption.Capacity)
             lblWindow.Text = caption.ToString()
@@ -110,18 +108,21 @@
 
     Private Sub colorReset()
         cbg = Color.White
-        cfg = Color.Black
-        cright = Color.Green
-        cwait = Color.Yellow
-        cwrong = Color.Gray
+        cfg = Color.FromArgb(33, 33, 33)
+        cright = Color.FromArgb(56, 142, 60)
+        cwait = Color.FromArgb(251, 192, 45)
+        cwrong = Color.FromArgb(117, 117, 117)
     End Sub
 
-    Private Sub keysReset()
+    Private Sub keys1Reset()
         keys1(0) = Keys.F
         keys1(1) = Keys.None
         keys1(2) = Keys.None
         keys1(3) = Keys.None
         keys1(4) = Keys.None
+    End Sub
+
+    Private Sub keys2Reset()
         keys2(0) = Keys.J
         keys2(1) = Keys.None
         keys2(2) = Keys.None
@@ -130,18 +131,19 @@
     End Sub
 
     Private Sub playerReset()
-        player1 = "Player1"
-        player2 = "Player2"
+        player1 = "Player 1"
+        player2 = "Player 2"
     End Sub
 
     Private Sub qsReset()
         timeq = 45
-        numq = 5
+        numq = 3
     End Sub
 
     Private Sub Splash_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         colorReset()
-        keysReset()
+        keys1Reset()
+        keys2Reset()
         qsReset()
         playerReset()
         redraw()
@@ -281,5 +283,30 @@
         clrDialog.ShowDialog()
         cwrong = clrDialog.Color
         recWrong.BackColor = cwrong
+    End Sub
+
+    Private Sub btnColorReset_Click(sender As Object, e As EventArgs) Handles btnColorReset.Click
+        colorReset()
+        redraw()
+    End Sub
+
+    Private Sub btnQsReset_Click(sender As Object, e As EventArgs) Handles btnQsReset.Click
+        qsReset()
+        redraw()
+    End Sub
+
+    Private Sub btnPlayerReset_Click(sender As Object, e As EventArgs) Handles btnPlayerReset.Click
+        playerReset()
+        redraw()
+    End Sub
+
+    Private Sub btnKeys1Reset_Click(sender As Object, e As EventArgs) Handles btnKeys1Reset.Click
+        keys1Reset()
+        redraw()
+    End Sub
+
+    Private Sub btnKeys2Reset_Click(sender As Object, e As EventArgs) Handles btnKeys2Reset.Click
+        keys2Reset()
+        redraw()
     End Sub
 End Class

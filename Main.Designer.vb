@@ -45,24 +45,22 @@ Partial Class Main
         '
         'lblPlayer1
         '
-        Me.lblPlayer1.AutoSize = True
         Me.lblPlayer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPlayer1.Font = New System.Drawing.Font("Segoe UI Light", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPlayer1.Location = New System.Drawing.Point(88, 9)
         Me.lblPlayer1.Name = "lblPlayer1"
-        Me.lblPlayer1.Size = New System.Drawing.Size(222, 86)
+        Me.lblPlayer1.Size = New System.Drawing.Size(351, 86)
         Me.lblPlayer1.TabIndex = 2
         Me.lblPlayer1.Text = "Player1"
         Me.lblPlayer1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblPlayer2
         '
-        Me.lblPlayer2.AutoSize = True
         Me.lblPlayer2.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPlayer2.Font = New System.Drawing.Font("Segoe UI Light", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPlayer2.Location = New System.Drawing.Point(695, 9)
+        Me.lblPlayer2.Location = New System.Drawing.Point(569, 9)
         Me.lblPlayer2.Name = "lblPlayer2"
-        Me.lblPlayer2.Size = New System.Drawing.Size(232, 86)
+        Me.lblPlayer2.Size = New System.Drawing.Size(351, 86)
         Me.lblPlayer2.TabIndex = 2
         Me.lblPlayer2.Text = "Player2"
         Me.lblPlayer2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
