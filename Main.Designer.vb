@@ -46,7 +46,7 @@ Partial Class Main
         'lblPlayer1
         '
         Me.lblPlayer1.AutoSize = True
-        Me.lblPlayer1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblPlayer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPlayer1.Font = New System.Drawing.Font("Segoe UI Light", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPlayer1.Location = New System.Drawing.Point(88, 9)
         Me.lblPlayer1.Name = "lblPlayer1"
@@ -58,7 +58,7 @@ Partial Class Main
         'lblPlayer2
         '
         Me.lblPlayer2.AutoSize = True
-        Me.lblPlayer2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblPlayer2.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPlayer2.Font = New System.Drawing.Font("Segoe UI Light", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPlayer2.Location = New System.Drawing.Point(695, 9)
         Me.lblPlayer2.Name = "lblPlayer2"
@@ -70,7 +70,7 @@ Partial Class Main
         'lblScore1
         '
         Me.lblScore1.AutoSize = True
-        Me.lblScore1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblScore1.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblScore1.Font = New System.Drawing.Font("Segoe UI Light", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore1.Location = New System.Drawing.Point(3, -12)
         Me.lblScore1.Name = "lblScore1"
@@ -82,7 +82,7 @@ Partial Class Main
         'lblScore2
         '
         Me.lblScore2.AutoSize = True
-        Me.lblScore2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblScore2.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblScore2.Font = New System.Drawing.Font("Segoe UI Light", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore2.Location = New System.Drawing.Point(911, -12)
         Me.lblScore2.Name = "lblScore2"

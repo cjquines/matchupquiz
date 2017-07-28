@@ -22,23 +22,31 @@
         lblScore1.Text = score1.ToString
         Select Case ans1
             Case -1
+                lblScore1.Cursor = Cursors.Default
                 lblScore1.ForeColor = Splash.cwrong
             Case 0
+                lblScore1.Cursor = Cursors.Default
                 lblScore1.ForeColor = Splash.cfg
             Case 1
+                lblScore1.Cursor = Cursors.Hand
                 lblScore1.ForeColor = Splash.cwait
             Case 2
+                lblScore1.Cursor = Cursors.Default
                 lblScore1.ForeColor = Splash.cright
         End Select
         lblScore2.Text = score2.ToString
         Select Case ans2
             Case -1
+                lblScore2.Cursor = Cursors.Default
                 lblScore2.ForeColor = Splash.cwrong
             Case 0
+                lblScore2.Cursor = Cursors.Default
                 lblScore2.ForeColor = Splash.cfg
             Case 1
+                lblScore2.Cursor = Cursors.Hand
                 lblScore2.ForeColor = Splash.cwait
             Case 2
+                lblScore2.Cursor = Cursors.Default
                 lblScore2.ForeColor = Splash.cright
         End Select
         Select Case status
@@ -67,8 +75,14 @@
             lblTimer.Text = qtimer.ToString
         End If
         If running Then
+            lblPlayer1.Cursor = Cursors.Default
+            lblPlayer2.Cursor = Cursors.Default
+            lblStatus.Cursor = Cursors.Default
             tmrQuestion.Enabled = True
         Else
+            lblPlayer1.Cursor = Cursors.Hand
+            lblPlayer2.Cursor = Cursors.Hand
+            lblStatus.Cursor = Cursors.Hand
             tmrQuestion.Enabled = False
         End If
     End Sub
@@ -202,22 +216,28 @@
     End Sub
 
     Private Sub lblStatus_Click(sender As Object, e As EventArgs) Handles lblStatus.Click
-        Splash.Show()
+        If Not running Then
+            Splash.Show()
+        End If
     End Sub
 
     Private Sub lblPlayer1_Click(sender As Object, e As EventArgs) Handles lblPlayer1.Click
-        Splash.player1 = InputBox("Input Player1's name, at most 16 characters", "Input Player1 name", "Player1")
-        If Splash.player1 = "" Then
-            Splash.player1 = "Player1"
+        If Not running Then
+            Splash.player1 = InputBox("Input Player1's name, at most 16 characters", "Input Player1 name", "Player1")
+            If Splash.player1 = "" Then
+                Splash.player1 = "Player1"
+            End If
+            bgdraw()
         End If
-        bgdraw()
     End Sub
 
     Private Sub lblPlayer2_Click(sender As Object, e As EventArgs) Handles lblPlayer2.Click
-        Splash.player2 = InputBox("Input Player2's name, at most 16 characters", "Input Player2 name", "Player2")
-        If Splash.player2 = "" Then
-            Splash.player2 = "Player2"
+        If Not running Then
+            Splash.player2 = InputBox("Input Player2's name, at most 16 characters", "Input Player2 name", "Player2")
+            If Splash.player2 = "" Then
+                Splash.player2 = "Player2"
+            End If
+            bgdraw()
         End If
-        bgdraw()
     End Sub
 End Class
