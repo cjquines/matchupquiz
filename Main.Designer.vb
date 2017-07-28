@@ -22,12 +22,14 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblTimer = New System.Windows.Forms.Label()
         Me.lblPlayer1 = New System.Windows.Forms.Label()
         Me.lblPlayer2 = New System.Windows.Forms.Label()
         Me.lblScore1 = New System.Windows.Forms.Label()
         Me.lblScore2 = New System.Windows.Forms.Label()
         Me.lblStatus = New System.Windows.Forms.Label()
+        Me.tmrQuestion = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'lblTimer
@@ -85,6 +87,10 @@ Partial Class Main
         Me.lblStatus.TabIndex = 3
         Me.lblStatus.Text = "Status"
         '
+        'tmrQuestion
+        '
+        Me.tmrQuestion.Interval = 1000
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -109,4 +115,5 @@ Partial Class Main
     Friend WithEvents lblScore1 As System.Windows.Forms.Label
     Friend WithEvents lblScore2 As System.Windows.Forms.Label
     Friend WithEvents lblStatus As System.Windows.Forms.Label
+    Friend WithEvents tmrQuestion As System.Windows.Forms.Timer
 End Class
