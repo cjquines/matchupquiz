@@ -3,46 +3,41 @@
     ' Also, a separate form for settings
     'e.KeyCode.ToString()
 
-    Public proghandle As IntPtr
+    Public cbg, cfg, cright, cwait, cwrong As Color
+    Public keys1(10), keys2(10) As Keys
+    Public timeq, numq As Integer
+
     Private running As Boolean
-    Private ans1, ans2, qtimer, qnumber, score1, score2, status As Integer
+    Private ans1, ans2, qnumber, qtimer, score1, score2, status As Integer
 
     Declare Auto Function SetForegroundWindow Lib "USER32.DLL" (hwnd As IntPtr) As Boolean
 
     Private Sub redraw()
-        If running Then
-            tmrQuestion.Enabled = True
-        Else
-            tmrQuestion.Enabled = False
-        End If
-        If qtimer < 0 Then
-            lblTimer.Text = "--"
-        Else
-            lblTimer.Text = qtimer.ToString
-        End If
         lblScore1.Text = score1.ToString
-        lblScore2.Text = score2.ToString
         Select Case ans1
             Case -1
-                lblScore1.ForeColor = Color.Gray
+                lblScore1.ForeColor = cwrong
             Case 0
-                lblScore1.ForeColor = Color.Black
+                lblScore1.ForeColor = cfg
             Case 1
-                lblScore1.ForeColor = Color.Yellow
+                lblScore1.ForeColor = cwait
             Case 2
-                lblScore1.ForeColor = Color.Green
+                lblScore1.ForeColor = cright
         End Select
+        lblScore2.Text = score2.ToString
         Select Case ans2
             Case -1
-                lblScore2.ForeColor = Color.Gray
+                lblScore2.ForeColor = cwrong
             Case 0
-                lblScore2.ForeColor = Color.Black
+                lblScore2.ForeColor = cfg
             Case 1
-                lblScore2.ForeColor = Color.Yellow
+                lblScore2.ForeColor = cwait
             Case 2
-                lblScore2.ForeColor = Color.Green
+                lblScore2.ForeColor = cright
         End Select
-        If status = 0 Then
+        If status = -1 Then
+            lblStatus.Text = ""
+        ElseIf status = 0 Then
             lblStatus.Text = "Question " + qnumber.ToString
         ElseIf status = 1 Then
             lblStatus.Text = lblPlayer1.Text + " is correct"
@@ -55,37 +50,47 @@
         ElseIf status = 5 Then
             lblStatus.Text = lblPlayer2.Text + " wins"
         End If
+        If qtimer < 0 Then
+            lblTimer.Text = "--"
+        Else
+            lblTimer.Text = qtimer.ToString
+        End If
+        If running Then
+            tmrQuestion.Enabled = True
+        Else
+            tmrQuestion.Enabled = False
+        End If
     End Sub
 
     Private Sub newRound()
         running = False
         ans1 = 0
         ans2 = 0
-        status = 0
-        score1 = 0
-        score2 = 0
         qnumber = 0
         qtimer = -1
+        score1 = 0
+        score2 = 0
+        status = -1
         redraw()
     End Sub
 
     Private Sub newQuestion()
-        SetForegroundWindow(proghandle)
+        SetForegroundWindow(Splash.proghandle)
         SendKeys.SendWait("{RIGHT}")
         SetForegroundWindow(Me.Handle)
-        qtimer = 45
-        qnumber += 1
-        status = 0
+        running = True
         ans1 = 0
         ans2 = 0
-        running = True
+        qnumber += 1
+        qtimer = timeq
+        status = 0
         redraw()
     End Sub
 
     Private Sub checkWin()
-        If (score1 > 5 \ 2) Or
-            (score2 > 5 \ 2) Or
-            (qnumber >= 5 And score1 <> score2) Then
+        If (score1 > numq \ 2) Or
+            (score2 > numq \ 2) Or
+            (qnumber >= numq And score1 <> score2) Then
             qtimer = -1
             If score1 > score2 Then
                 ans1 = 2
@@ -97,11 +102,6 @@
                 status = 5
             End If
         End If
-    End Sub
-
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        proghandle = Splash.proghandle
-        newRound()
     End Sub
 
     Private Sub lblTimer_Click(sender As Object, e As EventArgs) Handles lblTimer.Click
@@ -123,11 +123,11 @@
 
     Private Sub Main_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If running Then
-            If e.KeyCode = Keys.F And ans1 > -1 Then
+            If keys1.Contains(e.KeyCode) And ans1 > -1 Then
                 ans1 = 1
                 running = False
                 redraw()
-            ElseIf e.KeyCode = Keys.J And ans2 > -1 Then
+            ElseIf keys2.Contains(e.KeyCode) And ans2 > -1 Then
                 ans2 = 1
                 running = False
                 redraw()
@@ -148,8 +148,8 @@
 
     Private Sub lblScore2_Click(sender As Object, e As EventArgs) Handles lblScore2.Click
         If ans2 = 1 Then
-            ans2 = 2
             ans1 = -1
+            ans2 = 2
             score2 += 1
             status = 2
             checkWin()
@@ -161,11 +161,25 @@
         qtimer -= 1
         If qtimer = 0 Then
             running = False
-            status = 3
             ans1 = -1
             ans2 = -1
+            status = 3
         End If
         redraw()
+    End Sub
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbg = SystemColors.Control
+        cfg = SystemColors.ControlText
+        cright = Color.Green
+        cwait = Color.Yellow
+        cwrong = Color.Red
+        keys1(0) = Keys.F
+        keys2(0) = Keys.J
+        timeq = 45
+        numq = 5
+
+        newRound()
     End Sub
 
     Private Sub Main_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
