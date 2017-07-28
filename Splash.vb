@@ -1,5 +1,11 @@
 ﻿Public Class Splash
-    Public Property proghandle As IntPtr
+    ' add button to reset configs
+
+    Public cbg, cfg, cright, cwait, cwrong As Color
+    Public keys1(5), keys2(5) As Keys
+    Public timeq, numq As Integer
+    Public proghandle As IntPtr
+
     Private prevhandle As IntPtr
     Private prevrect As Rect
 
@@ -74,5 +80,163 @@
             Main.Show()
             Me.Hide()
         End If
+    End Sub
+
+    Private Sub Splash_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cbg = SystemColors.Control
+        cfg = SystemColors.ControlText
+        cright = Color.Green
+        cwait = Color.Yellow
+        cwrong = Color.Red
+        keys1(0) = Keys.F
+        keys2(0) = Keys.J
+        timeq = 45
+        numq = 5
+
+        btnKeys10.Text = keys1(0).ToString()
+        btnKeys11.Text = keys1(1).ToString()
+        btnKeys12.Text = keys1(2).ToString()
+        btnKeys13.Text = keys1(3).ToString()
+        btnKeys14.Text = keys1(4).ToString()
+        btnKeys20.Text = keys2(0).ToString()
+        btnKeys21.Text = keys2(1).ToString()
+        btnKeys22.Text = keys2(2).ToString()
+        btnKeys23.Text = keys2(3).ToString()
+        btnKeys24.Text = keys2(4).ToString()
+        recBG.BackColor = cbg
+        recFG.BackColor = cfg
+        recRight.BackColor = cright
+        recWait.BackColor = cwait
+        recWrong.BackColor = cwrong
+        txtTime.Text = timeq
+        txtNum.Text = numq
+    End Sub
+
+    Private Sub recBG_Click(sender As Object, e As EventArgs) Handles recBG.Click
+        clrDialog.ShowDialog()
+        cbg = clrDialog.Color
+        recBG.BackColor = cbg
+    End Sub
+
+    Private Sub recFG_Click(sender As Object, e As EventArgs) Handles recFG.Click
+        clrDialog.ShowDialog()
+        cfg = clrDialog.Color
+        recFG.BackColor = cfg
+    End Sub
+
+    Private Sub recRight_Click(sender As Object, e As EventArgs) Handles recRight.Click
+        clrDialog.ShowDialog()
+        cright = clrDialog.Color
+        recRight.BackColor = cright
+    End Sub
+
+    Private Sub recWait_Click(sender As Object, e As EventArgs) Handles recWait.Click
+        clrDialog.ShowDialog()
+        cwait = clrDialog.Color
+        recWait.BackColor = cwait
+    End Sub
+
+    Private Sub recWrong_Click(sender As Object, e As EventArgs) Handles recWrong.Click
+        clrDialog.ShowDialog()
+        cwrong = clrDialog.Color
+        recWrong.BackColor = cwrong
+    End Sub
+
+    Private Sub txtTime_TextChanged(sender As Object, e As EventArgs) Handles txtTime.TextChanged
+        timeq = Val(txtTime.Text) ' check if integer >:(
+    End Sub
+
+    Private Sub txtNum_TextChanged(sender As Object, e As EventArgs) Handles txtNum.TextChanged
+        numq = Val(txtNum.Text) ' check if integer >:(
+    End Sub
+
+    Private Sub btnKeys10_Click(sender As Object, e As EventArgs) Handles btnKeys10.Click
+        btnKeys10.Text = "..."
+    End Sub
+
+    Private Sub btnKeys10_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys10.KeyDown
+        keys1(0) = e.KeyCode
+        btnKeys10.Text = keys1(0).ToString()
+    End Sub
+
+    Private Sub btnKeys11_Click(sender As Object, e As EventArgs) Handles btnKeys11.Click
+        btnKeys11.Text = "..."
+    End Sub
+
+    Private Sub btnKeys11_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys11.KeyDown
+        keys1(1) = e.KeyCode
+        btnKeys11.Text = keys1(1).ToString()
+    End Sub
+
+    Private Sub btnKeys12_Click(sender As Object, e As EventArgs) Handles btnKeys12.Click
+        btnKeys12.Text = "..."
+    End Sub
+
+    Private Sub btnKeys12_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys12.KeyDown
+        keys1(2) = e.KeyCode
+        btnKeys12.Text = keys1(2).ToString()
+    End Sub
+
+    Private Sub btnKeys13_Click(sender As Object, e As EventArgs) Handles btnKeys13.Click
+        btnKeys13.Text = "..."
+    End Sub
+
+    Private Sub btnKeys13_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys13.KeyDown
+        keys1(3) = e.KeyCode
+        btnKeys13.Text = keys1(3).ToString()
+    End Sub
+
+    Private Sub btnKeys14_Click(sender As Object, e As EventArgs) Handles btnKeys14.Click
+        btnKeys14.Text = "..."
+    End Sub
+
+    Private Sub btnKeys14_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys14.KeyDown
+        keys1(4) = e.KeyCode
+        btnKeys14.Text = keys1(4).ToString()
+    End Sub
+
+    Private Sub btnKeys20_Click(sender As Object, e As EventArgs) Handles btnKeys20.Click
+        btnKeys20.Text = "..."
+    End Sub
+
+    Private Sub btnKeys20_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys20.KeyDown
+        keys2(0) = e.KeyCode
+        btnKeys20.Text = keys2(0).ToString()
+    End Sub
+
+    Private Sub btnkeys21_Click(sender As Object, e As EventArgs) Handles btnKeys21.Click
+        btnKeys21.Text = "..."
+    End Sub
+
+    Private Sub btnkeys21_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys21.KeyDown
+        keys2(1) = e.KeyCode
+        btnKeys21.Text = keys2(1).ToString()
+    End Sub
+
+    Private Sub btnkeys22_Click(sender As Object, e As EventArgs) Handles btnKeys22.Click
+        btnKeys22.Text = "..."
+    End Sub
+
+    Private Sub btnkeys22_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys22.KeyDown
+        keys2(2) = e.KeyCode
+        btnKeys22.Text = keys2(2).ToString()
+    End Sub
+
+    Private Sub btnkeys23_Click(sender As Object, e As EventArgs) Handles btnKeys23.Click
+        btnKeys23.Text = "..."
+    End Sub
+
+    Private Sub btnkeys23_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys23.KeyDown
+        keys2(3) = e.KeyCode
+        btnKeys23.Text = keys2(3).ToString()
+    End Sub
+
+    Private Sub btnkeys24_Click(sender As Object, e As EventArgs) Handles btnKeys24.Click
+        btnKeys24.Text = "..."
+    End Sub
+
+    Private Sub btnkeys24_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys24.KeyDown
+        keys2(4) = e.KeyCode
+        btnKeys24.Text = keys2(4).ToString()
     End Sub
 End Class

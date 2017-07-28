@@ -3,10 +3,6 @@
     ' Also, a separate form for settings
     'e.KeyCode.ToString()
 
-    Public cbg, cfg, cright, cwait, cwrong As Color
-    Public keys1(10), keys2(10) As Keys
-    Public timeq, numq As Integer
-
     Private running As Boolean
     Private ans1, ans2, qnumber, qtimer, score1, score2, status As Integer
 
@@ -16,24 +12,24 @@
         lblScore1.Text = score1.ToString
         Select Case ans1
             Case -1
-                lblScore1.ForeColor = cwrong
+                lblScore1.ForeColor = Splash.cwrong
             Case 0
-                lblScore1.ForeColor = cfg
+                lblScore1.ForeColor = Splash.cfg
             Case 1
-                lblScore1.ForeColor = cwait
+                lblScore1.ForeColor = Splash.cwait
             Case 2
-                lblScore1.ForeColor = cright
+                lblScore1.ForeColor = Splash.cright
         End Select
         lblScore2.Text = score2.ToString
         Select Case ans2
             Case -1
-                lblScore2.ForeColor = cwrong
+                lblScore2.ForeColor = Splash.cwrong
             Case 0
-                lblScore2.ForeColor = cfg
+                lblScore2.ForeColor = Splash.cfg
             Case 1
-                lblScore2.ForeColor = cwait
+                lblScore2.ForeColor = Splash.cwait
             Case 2
-                lblScore2.ForeColor = cright
+                lblScore2.ForeColor = Splash.cright
         End Select
         If status = -1 Then
             lblStatus.Text = ""
@@ -75,6 +71,7 @@
     End Sub
 
     Private Sub newQuestion()
+        Console.WriteLine(Splash.timeq)
         SetForegroundWindow(Splash.proghandle)
         SendKeys.SendWait("{RIGHT}")
         SetForegroundWindow(Me.Handle)
@@ -82,15 +79,15 @@
         ans1 = 0
         ans2 = 0
         qnumber += 1
-        qtimer = timeq
+        qtimer = Splash.timeq
         status = 0
         redraw()
     End Sub
 
     Private Sub checkWin()
-        If (score1 > numq \ 2) Or
-            (score2 > numq \ 2) Or
-            (qnumber >= numq And score1 <> score2) Then
+        If (score1 > Splash.numq \ 2) Or
+            (score2 > Splash.numq \ 2) Or
+            (qnumber >= Splash.numq And score1 <> score2) Then
             qtimer = -1
             If score1 > score2 Then
                 ans1 = 2
@@ -123,11 +120,11 @@
 
     Private Sub Main_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If running Then
-            If keys1.Contains(e.KeyCode) And ans1 > -1 Then
+            If Splash.keys1.Contains(e.KeyCode) And ans1 > -1 Then
                 ans1 = 1
                 running = False
                 redraw()
-            ElseIf keys2.Contains(e.KeyCode) And ans2 > -1 Then
+            ElseIf Splash.keys2.Contains(e.KeyCode) And ans2 > -1 Then
                 ans2 = 1
                 running = False
                 redraw()
@@ -158,27 +155,23 @@
     End Sub
 
     Private Sub tmrQuestion_Tick(sender As Object, e As EventArgs) Handles tmrQuestion.Tick
-        qtimer -= 1
         If qtimer = 0 Then
             running = False
             ans1 = -1
             ans2 = -1
             status = 3
+        Else
+            qtimer -= 1
         End If
         redraw()
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbg = SystemColors.Control
-        cfg = SystemColors.ControlText
-        cright = Color.Green
-        cwait = Color.Yellow
-        cwrong = Color.Red
-        keys1(0) = Keys.F
-        keys2(0) = Keys.J
-        timeq = 45
-        numq = 5
-
+        MyBase.BackColor = Splash.cbg
+        lblPlayer1.ForeColor = Splash.cfg
+        lblPlayer2.ForeColor = Splash.cfg
+        lblStatus.ForeColor = Splash.cfg
+        lblTimer.ForeColor = Splash.cfg
         newRound()
     End Sub
 
