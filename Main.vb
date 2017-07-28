@@ -8,6 +8,16 @@
 
     Declare Auto Function SetForegroundWindow Lib "USER32.DLL" (hwnd As IntPtr) As Boolean
 
+    Public Sub bgdraw()
+        MyBase.BackColor = Splash.cbg
+        lblPlayer1.Text = Splash.player1
+        lblPlayer1.ForeColor = Splash.cfg
+        lblPlayer2.Text = Splash.player2
+        lblPlayer2.ForeColor = Splash.cfg
+        lblStatus.ForeColor = Splash.cfg
+        lblTimer.ForeColor = Splash.cfg
+    End Sub
+
     Private Sub redraw()
         lblScore1.Text = score1.ToString
         Select Case ans1
@@ -31,21 +41,26 @@
             Case 2
                 lblScore2.ForeColor = Splash.cright
         End Select
-        If status = -1 Then
-            lblStatus.Text = ""
-        ElseIf status = 0 Then
-            lblStatus.Text = "Question " + qnumber.ToString
-        ElseIf status = 1 Then
-            lblStatus.Text = lblPlayer1.Text + " is correct"
-        ElseIf status = 2 Then
-            lblStatus.Text = lblPlayer2.Text + " is correct"
-        ElseIf status = 3 Then
-            lblStatus.Text = "Time out"
-        ElseIf status = 4 Then
-            lblStatus.Text = lblPlayer1.Text + " wins"
-        ElseIf status = 5 Then
-            lblStatus.Text = lblPlayer2.Text + " wins"
-        End If
+        Select Case status
+            Case -1
+                lblStatus.Text = "Round start"
+            Case 0
+                lblStatus.Text = "Question " + qnumber.ToString
+            Case 1
+                lblStatus.Text = lblPlayer1.Text + " is correct"
+            Case 2
+                lblStatus.Text = lblPlayer2.Text + " is correct"
+            Case 3
+                lblStatus.Text = "Time out"
+            Case 4
+                lblStatus.Text = "Both incorrect"
+            Case 5
+                lblStatus.Text = "Timer stopped"
+            Case 11
+                lblStatus.Text = lblPlayer1.Text + " wins"
+            Case 12
+                lblStatus.Text = lblPlayer2.Text + " wins"
+        End Select
         If qtimer < 0 Then
             lblTimer.Text = "--"
         Else
@@ -92,11 +107,11 @@
             If score1 > score2 Then
                 ans1 = 2
                 ans2 = 0
-                status = 4
+                status = 11
             Else
                 ans1 = 0
                 ans2 = 2
-                status = 5
+                status = 12
             End If
         End If
     End Sub
@@ -104,13 +119,24 @@
     Private Sub lblTimer_Click(sender As Object, e As EventArgs) Handles lblTimer.Click
         If running Then
             running = False
+            status = 5
         ElseIf ans1 = 1 Then
             ans1 = -1
-            running = True
+            If ans2 = 0 Then
+                running = True
+            Else
+                running = False
+                status = 4
+            End If
         ElseIf ans2 = 1 Then
             ans2 = -1
-            running = True
-        ElseIf status >= 4 Then
+            If ans1 = 0 Then
+                running = True
+            Else
+                running = False
+                status = 4
+            End If
+        ElseIf status >= 11 Then
             newRound()
         Else
             newQuestion()
@@ -167,15 +193,31 @@
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MyBase.BackColor = Splash.cbg
-        lblPlayer1.ForeColor = Splash.cfg
-        lblPlayer2.ForeColor = Splash.cfg
-        lblStatus.ForeColor = Splash.cfg
-        lblTimer.ForeColor = Splash.cfg
+        bgdraw()
         newRound()
     End Sub
 
     Private Sub Main_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Splash.Show()
+    End Sub
+
+    Private Sub lblStatus_Click(sender As Object, e As EventArgs) Handles lblStatus.Click
+        Splash.Show()
+    End Sub
+
+    Private Sub lblPlayer1_Click(sender As Object, e As EventArgs) Handles lblPlayer1.Click
+        Splash.player1 = InputBox("Input Player1's name, at most 16 characters", "Input Player1 name", "Player1")
+        If Splash.player1 = "" Then
+            Splash.player1 = "Player1"
+        End If
+        bgdraw()
+    End Sub
+
+    Private Sub lblPlayer2_Click(sender As Object, e As EventArgs) Handles lblPlayer2.Click
+        Splash.player2 = InputBox("Input Player2's name, at most 16 characters", "Input Player2 name", "Player2")
+        If Splash.player2 = "" Then
+            Splash.player2 = "Player2"
+        End If
+        bgdraw()
     End Sub
 End Class

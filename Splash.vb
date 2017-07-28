@@ -1,10 +1,13 @@
 ﻿Public Class Splash
     ' add button to reset configs
+    ' input validation
+    ' work on UI
 
     Public cbg, cfg, cright, cwait, cwrong As Color
     Public keys1(5), keys2(5) As Keys
     Public timeq, numq As Integer
     Public proghandle As IntPtr
+    Public player1, player2 As String
 
     Private prevhandle As IntPtr
     Private prevrect As Rect
@@ -75,23 +78,26 @@
 
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
         If proghandle.Equals(IntPtr.Zero) Then
-            MsgBox("Woah there, you haven't selected the PDF viewer.")
+            MsgBox("No program selected.")
         Else
+            Main.bgdraw()
             Main.Show()
             Me.Hide()
         End If
     End Sub
 
     Private Sub Splash_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbg = SystemColors.Control
-        cfg = SystemColors.ControlText
+        cbg = Color.White
+        cfg = Color.Black
         cright = Color.Green
         cwait = Color.Yellow
-        cwrong = Color.Red
+        cwrong = Color.Gray
         keys1(0) = Keys.F
         keys2(0) = Keys.J
         timeq = 45
         numq = 5
+        player1 = "Player1"
+        player2 = "Player2"
 
         btnKeys10.Text = keys1(0).ToString()
         btnKeys11.Text = keys1(1).ToString()
