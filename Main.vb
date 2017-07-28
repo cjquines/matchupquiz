@@ -1,8 +1,4 @@
 ﻿Public Class Main
-    ' Should support click name -> InputBox to change it
-    ' Also, a separate form for settings
-    'e.KeyCode.ToString()
-
     Private running As Boolean
     Private ans1, ans2, qnumber, qtimer, score1, score2, status As Integer
 
@@ -212,11 +208,13 @@
     End Sub
 
     Private Sub Main_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Splash.redraw()
         Splash.Show()
     End Sub
 
     Private Sub lblStatus_Click(sender As Object, e As EventArgs) Handles lblStatus.Click
         If Not running Then
+            Splash.redraw()
             Splash.Show()
         End If
     End Sub

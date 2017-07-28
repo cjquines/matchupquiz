@@ -86,19 +86,7 @@
         End If
     End Sub
 
-    Private Sub Splash_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbg = Color.White
-        cfg = Color.Black
-        cright = Color.Green
-        cwait = Color.Yellow
-        cwrong = Color.Gray
-        keys1(0) = Keys.F
-        keys2(0) = Keys.J
-        timeq = 45
-        numq = 5
-        player1 = "Player1"
-        player2 = "Player2"
-
+    Public Sub redraw()
         btnKeys10.Text = keys1(0).ToString()
         btnKeys11.Text = keys1(1).ToString()
         btnKeys12.Text = keys1(2).ToString()
@@ -116,6 +104,41 @@
         recWrong.BackColor = cwrong
         txtTime.Text = timeq
         txtNum.Text = numq
+    End Sub
+
+    Private Sub colorReset()
+        cbg = Color.White
+        cfg = Color.Black
+        cright = Color.Green
+        cwait = Color.Yellow
+        cwrong = Color.Gray
+    End Sub
+
+    Private Sub keysReset()
+        keys1(0) = Keys.F
+        keys1(1) = Keys.None
+        keys1(2) = Keys.None
+        keys1(3) = Keys.None
+        keys1(4) = Keys.None
+        keys2(0) = Keys.J
+        keys2(1) = Keys.None
+        keys2(2) = Keys.None
+        keys2(3) = Keys.None
+        keys2(4) = Keys.None
+    End Sub
+
+    Private Sub qsReset()
+        timeq = 45
+        numq = 5
+    End Sub
+
+    Private Sub Splash_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        colorReset()
+        keysReset()
+        qsReset()
+        player1 = "Player1"
+        player2 = "Player2"
+        redraw()
     End Sub
 
     Private Sub recBG_Click(sender As Object, e As EventArgs) Handles recBG.Click
