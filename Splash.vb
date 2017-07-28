@@ -1,6 +1,6 @@
-﻿Public Class Splash
-    ' validate input data
+﻿Imports System.Text.RegularExpressions
 
+Public Class Splash
     Public cbg, cfg, cright, cwait, cwrong As Color
     Public keys1(5), keys2(5) As Keys
     Public timeq, numq As Integer
@@ -8,6 +8,7 @@
     Public player1, player2 As String
 
     Private prevhandle As IntPtr
+    Private progname As String
     Private prevrect As Rect
 
     Declare Auto Function GetParent Lib "USER32.DLL" (hwnd As IntPtr) As IntPtr
@@ -54,7 +55,9 @@
             Dim caption As New System.Text.StringBuilder(50)
             proghandle = recurseParent(WindowFromPoint(point))
             GetWindowText(proghandle, caption, caption.Capacity)
-            lblWindow.Text = caption.ToString()
+            progname = caption.ToString()
+            lblWindow.Text = progname
+            lblWindow.ForeColor = SystemColors.ControlText
 
             If Not proghandle.Equals(prevhandle) Then
                 If Not prevhandle.Equals(IntPtr.Zero) Then
@@ -76,8 +79,11 @@
 
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
         If proghandle.Equals(IntPtr.Zero) Then
-            MsgBox("No program selected.")
+            lblWindow.Text = "No program selected."
+            lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
+            tmrError.Enabled = True
         Else
+            tmrError.Enabled = False
             Main.bgdraw()
             Main.Show()
             Me.Hide()
@@ -95,11 +101,14 @@
         btnKeys22.Text = keys2(2).ToString()
         btnKeys23.Text = keys2(3).ToString()
         btnKeys24.Text = keys2(4).ToString()
+        lblWindow.Text = progname
+        lblWindow.ForeColor = SystemColors.ControlText
         recBG.BackColor = cbg
         recFG.BackColor = cfg
         recRight.BackColor = cright
         recWait.BackColor = cwait
         recWrong.BackColor = cwrong
+        tmrError.Enabled = False
         txtPlayer1.Text = player1
         txtPlayer2.Text = player2
         txtNum.Text = numq
@@ -146,23 +155,52 @@
         keys2Reset()
         qsReset()
         playerReset()
+        progname = "Drag the X to a window..."
         redraw()
     End Sub
 
     Private Sub txtPlayer1_TextChanged(sender As Object, e As EventArgs) Handles txtPlayer1.TextChanged
-        player1 = txtPlayer1.Text ' validate
+        If Regex.IsMatch(txtPlayer1.Text, "^[\w\d\s]+$") Then
+            player1 = txtPlayer1.Text
+        Else
+            lblWindow.Text = "Alphanumeric characters and spaces only."
+            lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
+            tmrError.Enabled = True
+            txtPlayer1.Text = player1
+        End If
     End Sub
 
     Private Sub txtPlayer2_TextChanged(sender As Object, e As EventArgs) Handles txtPlayer2.TextChanged
-        player2 = txtPlayer2.Text ' validate
-    End Sub
-
-    Private Sub txtNum_TextChanged(sender As Object, e As EventArgs) Handles txtNum.TextChanged
-        numq = Val(txtNum.Text) ' check if integer >:(
+        If Regex.IsMatch(txtPlayer2.Text, "^[\w\d\s]+$") Then
+            player2 = txtPlayer2.Text
+        Else
+            lblWindow.Text = "Alphanumeric characters and spaces only."
+            lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
+            tmrError.Enabled = True
+            txtPlayer2.Text = player2
+        End If
     End Sub
 
     Private Sub txtTime_TextChanged(sender As Object, e As EventArgs) Handles txtTime.TextChanged
-        timeq = Val(txtTime.Text) ' check if integer >:(
+        If Regex.IsMatch(txtTime.Text, "^[\d]+$") Then
+            timeq = Val(txtTime.Text)
+        Else
+            lblWindow.Text = "Numerals only."
+            lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
+            tmrError.Enabled = True
+            txtTime.Text = timeq.ToString()
+        End If
+    End Sub
+
+    Private Sub txtNum_TextChanged(sender As Object, e As EventArgs) Handles txtNum.TextChanged
+        If Regex.IsMatch(txtNum.Text, "^[\d]+$") Then
+            numq = Val(txtNum.Text)
+        Else
+            lblWindow.Text = "Numerals only."
+            lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
+            tmrError.Enabled = True
+            txtNum.Text = numq.ToString()
+        End If
     End Sub
 
     Private Sub btnKeys10_Click(sender As Object, e As EventArgs) Handles btnKeys10.Click
@@ -171,7 +209,7 @@
 
     Private Sub btnKeys10_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys10.KeyDown
         keys1(0) = e.KeyCode
-        btnKeys10.Text = keys1(0).ToString()
+        redraw()
     End Sub
 
     Private Sub btnKeys11_Click(sender As Object, e As EventArgs) Handles btnKeys11.Click
@@ -180,7 +218,7 @@
 
     Private Sub btnKeys11_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys11.KeyDown
         keys1(1) = e.KeyCode
-        btnKeys11.Text = keys1(1).ToString()
+        redraw()
     End Sub
 
     Private Sub btnKeys12_Click(sender As Object, e As EventArgs) Handles btnKeys12.Click
@@ -189,7 +227,7 @@
 
     Private Sub btnKeys12_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys12.KeyDown
         keys1(2) = e.KeyCode
-        btnKeys12.Text = keys1(2).ToString()
+        redraw()
     End Sub
 
     Private Sub btnKeys13_Click(sender As Object, e As EventArgs) Handles btnKeys13.Click
@@ -198,7 +236,7 @@
 
     Private Sub btnKeys13_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys13.KeyDown
         keys1(3) = e.KeyCode
-        btnKeys13.Text = keys1(3).ToString()
+        redraw()
     End Sub
 
     Private Sub btnKeys14_Click(sender As Object, e As EventArgs) Handles btnKeys14.Click
@@ -207,7 +245,7 @@
 
     Private Sub btnKeys14_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys14.KeyDown
         keys1(4) = e.KeyCode
-        btnKeys14.Text = keys1(4).ToString()
+        redraw()
     End Sub
 
     Private Sub btnKeys20_Click(sender As Object, e As EventArgs) Handles btnKeys20.Click
@@ -216,7 +254,7 @@
 
     Private Sub btnKeys20_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys20.KeyDown
         keys2(0) = e.KeyCode
-        btnKeys20.Text = keys2(0).ToString()
+        redraw()
     End Sub
 
     Private Sub btnkeys21_Click(sender As Object, e As EventArgs) Handles btnKeys21.Click
@@ -225,7 +263,7 @@
 
     Private Sub btnkeys21_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys21.KeyDown
         keys2(1) = e.KeyCode
-        btnKeys21.Text = keys2(1).ToString()
+        redraw()
     End Sub
 
     Private Sub btnkeys22_Click(sender As Object, e As EventArgs) Handles btnKeys22.Click
@@ -234,7 +272,7 @@
 
     Private Sub btnkeys22_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys22.KeyDown
         keys2(2) = e.KeyCode
-        btnKeys22.Text = keys2(2).ToString()
+        redraw()
     End Sub
 
     Private Sub btnkeys23_Click(sender As Object, e As EventArgs) Handles btnKeys23.Click
@@ -243,7 +281,7 @@
 
     Private Sub btnkeys23_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys23.KeyDown
         keys2(3) = e.KeyCode
-        btnKeys23.Text = keys2(3).ToString()
+        redraw()
     End Sub
 
     Private Sub btnkeys24_Click(sender As Object, e As EventArgs) Handles btnKeys24.Click
@@ -252,37 +290,37 @@
 
     Private Sub btnkeys24_KeyDown(sender As Object, e As KeyEventArgs) Handles btnKeys24.KeyDown
         keys2(4) = e.KeyCode
-        btnKeys24.Text = keys2(4).ToString()
+        redraw()
     End Sub
 
     Private Sub recBG_Click(sender As Object, e As EventArgs) Handles recBG.Click
         clrDialog.ShowDialog()
         cbg = clrDialog.Color
-        recBG.BackColor = cbg
+        redraw()
     End Sub
 
     Private Sub recFG_Click(sender As Object, e As EventArgs) Handles recFG.Click
         clrDialog.ShowDialog()
         cfg = clrDialog.Color
-        recFG.BackColor = cfg
+        redraw()
     End Sub
 
     Private Sub recRight_Click(sender As Object, e As EventArgs) Handles recRight.Click
         clrDialog.ShowDialog()
         cright = clrDialog.Color
-        recRight.BackColor = cright
+        redraw()
     End Sub
 
     Private Sub recWait_Click(sender As Object, e As EventArgs) Handles recWait.Click
         clrDialog.ShowDialog()
         cwait = clrDialog.Color
-        recWait.BackColor = cwait
+        redraw()
     End Sub
 
     Private Sub recWrong_Click(sender As Object, e As EventArgs) Handles recWrong.Click
         clrDialog.ShowDialog()
         cwrong = clrDialog.Color
-        recWrong.BackColor = cwrong
+        redraw()
     End Sub
 
     Private Sub btnColorReset_Click(sender As Object, e As EventArgs) Handles btnColorReset.Click
@@ -307,6 +345,11 @@
 
     Private Sub btnKeys2Reset_Click(sender As Object, e As EventArgs) Handles btnKeys2Reset.Click
         keys2Reset()
+        redraw()
+    End Sub
+
+    Private Sub tmrError_Tick(sender As Object, e As EventArgs) Handles tmrError.Tick
+        tmrError.Enabled = False
         redraw()
     End Sub
 End Class

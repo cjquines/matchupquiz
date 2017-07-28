@@ -22,6 +22,7 @@ Partial Class Splash
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.imgFindProg = New System.Windows.Forms.PictureBox()
         Me.lblWindow = New System.Windows.Forms.Label()
         Me.btnStart = New System.Windows.Forms.Button()
@@ -62,6 +63,7 @@ Partial Class Splash
         Me.lblGuide9 = New System.Windows.Forms.Label()
         Me.lblGuide10 = New System.Windows.Forms.Label()
         Me.lblGuide11 = New System.Windows.Forms.Label()
+        Me.tmrError = New System.Windows.Forms.Timer(Me.components)
         CType(Me.imgFindProg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -401,6 +403,10 @@ Partial Class Splash
         Me.lblGuide11.TabIndex = 12
         Me.lblGuide11.Text = "Wrong"
         '
+        'tmrError
+        '
+        Me.tmrError.Interval = 2500
+        '
         'Splash
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -488,4 +494,5 @@ Partial Class Splash
     Friend WithEvents lblGuide9 As System.Windows.Forms.Label
     Friend WithEvents lblGuide10 As System.Windows.Forms.Label
     Friend WithEvents lblGuide11 As System.Windows.Forms.Label
+    Friend WithEvents tmrError As System.Windows.Forms.Timer
 End Class
