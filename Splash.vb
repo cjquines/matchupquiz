@@ -160,10 +160,10 @@ Public Class Splash
     End Sub
 
     Private Sub txtPlayer1_TextChanged(sender As Object, e As EventArgs) Handles txtPlayer1.TextChanged
-        If Regex.IsMatch(txtPlayer1.Text, "^[\w\d\s]+$") Then
+        If Regex.IsMatch(txtPlayer1.Text, "^[\w\d\s]+$") And txtPlayer1.Text.Length <= 16 Then
             player1 = txtPlayer1.Text
         Else
-            lblWindow.Text = "Alphanumeric characters and spaces only."
+            lblWindow.Text = "Alphanumeric characters and spaces only, at most 16 characters."
             lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
             tmrError.Enabled = True
             txtPlayer1.Text = player1
@@ -171,10 +171,10 @@ Public Class Splash
     End Sub
 
     Private Sub txtPlayer2_TextChanged(sender As Object, e As EventArgs) Handles txtPlayer2.TextChanged
-        If Regex.IsMatch(txtPlayer2.Text, "^[\w\d\s]+$") Then
+        If Regex.IsMatch(txtPlayer2.Text, "^[\w\d\s]+$") And txtPlayer2.Text.Length <= 16 Then
             player2 = txtPlayer2.Text
         Else
-            lblWindow.Text = "Alphanumeric characters and spaces only."
+            lblWindow.Text = "Alphanumeric characters and spaces only, at most 16 characters."
             lblWindow.ForeColor = Color.FromArgb(183, 28, 28)
             tmrError.Enabled = True
             txtPlayer2.Text = player2

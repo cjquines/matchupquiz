@@ -64,15 +64,18 @@ Partial Class Splash
         Me.lblGuide10 = New System.Windows.Forms.Label()
         Me.lblGuide11 = New System.Windows.Forms.Label()
         Me.tmrError = New System.Windows.Forms.Timer(Me.components)
+        Me.hlpProvider = New System.Windows.Forms.HelpProvider()
         CType(Me.imgFindProg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'imgFindProg
         '
         Me.imgFindProg.Cursor = System.Windows.Forms.Cursors.Cross
+        Me.hlpProvider.SetHelpString(Me.imgFindProg, "Drag on window to select it")
         Me.imgFindProg.Image = Global.matchupquiz.My.Resources.Resources.findprog
         Me.imgFindProg.Location = New System.Drawing.Point(12, 12)
         Me.imgFindProg.Name = "imgFindProg"
+        Me.hlpProvider.SetShowHelp(Me.imgFindProg, True)
         Me.imgFindProg.Size = New System.Drawing.Size(36, 36)
         Me.imgFindProg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imgFindProg.TabIndex = 0
@@ -81,19 +84,23 @@ Partial Class Splash
         'lblWindow
         '
         Me.lblWindow.AutoSize = True
+        Me.hlpProvider.SetHelpString(Me.lblWindow, "Title of currently selected window")
         Me.lblWindow.Location = New System.Drawing.Point(54, 24)
         Me.lblWindow.Name = "lblWindow"
+        Me.hlpProvider.SetShowHelp(Me.lblWindow, True)
         Me.lblWindow.Size = New System.Drawing.Size(56, 13)
         Me.lblWindow.TabIndex = 1
         Me.lblWindow.Text = "lblWindow"
         '
         'btnStart
         '
+        Me.hlpProvider.SetHelpString(Me.btnStart, "Start matchup program")
         Me.btnStart.Location = New System.Drawing.Point(12, 256)
         Me.btnStart.Name = "btnStart"
+        Me.hlpProvider.SetShowHelp(Me.btnStart, True)
         Me.btnStart.Size = New System.Drawing.Size(371, 36)
         Me.btnStart.TabIndex = 6
-        Me.btnStart.Text = "Button1"
+        Me.btnStart.Text = "Start"
         Me.btnStart.UseVisualStyleBackColor = True
         '
         'ShapeContainer1
@@ -143,22 +150,28 @@ Partial Class Splash
         '
         'txtTime
         '
+        Me.hlpProvider.SetHelpString(Me.txtTime, "Time in seconds per question")
         Me.txtTime.Location = New System.Drawing.Point(263, 54)
         Me.txtTime.Name = "txtTime"
+        Me.hlpProvider.SetShowHelp(Me.txtTime, True)
         Me.txtTime.Size = New System.Drawing.Size(121, 20)
         Me.txtTime.TabIndex = 2
         '
         'txtNum
         '
+        Me.hlpProvider.SetHelpString(Me.txtNum, "Number of questions per round")
         Me.txtNum.Location = New System.Drawing.Point(263, 82)
         Me.txtNum.Name = "txtNum"
+        Me.hlpProvider.SetShowHelp(Me.txtNum, True)
         Me.txtNum.Size = New System.Drawing.Size(121, 20)
         Me.txtNum.TabIndex = 3
         '
         'btnKeys11
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys11, "Click and press key to set player 1's buzzer")
         Me.btnKeys11.Location = New System.Drawing.Point(121, 137)
         Me.btnKeys11.Name = "btnKeys11"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys11, True)
         Me.btnKeys11.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys11.TabIndex = 7
         Me.btnKeys11.Text = "None"
@@ -166,8 +179,10 @@ Partial Class Splash
         '
         'btnKeys12
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys12, "Click and press key to set player 1's buzzer")
         Me.btnKeys12.Location = New System.Drawing.Point(168, 137)
         Me.btnKeys12.Name = "btnKeys12"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys12, True)
         Me.btnKeys12.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys12.TabIndex = 9
         Me.btnKeys12.Text = "None"
@@ -175,8 +190,10 @@ Partial Class Splash
         '
         'btnKeys13
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys13, "Click and press key to set player 1's buzzer")
         Me.btnKeys13.Location = New System.Drawing.Point(215, 137)
         Me.btnKeys13.Name = "btnKeys13"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys13, True)
         Me.btnKeys13.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys13.TabIndex = 11
         Me.btnKeys13.Text = "None"
@@ -184,8 +201,10 @@ Partial Class Splash
         '
         'btnKeys14
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys14, "Click and press key to set player 1's buzzer")
         Me.btnKeys14.Location = New System.Drawing.Point(262, 137)
         Me.btnKeys14.Name = "btnKeys14"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys14, True)
         Me.btnKeys14.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys14.TabIndex = 13
         Me.btnKeys14.Text = "None"
@@ -193,8 +212,10 @@ Partial Class Splash
         '
         'btnKeys10
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys10, "Click and press key to set player 1's buzzer")
         Me.btnKeys10.Location = New System.Drawing.Point(74, 137)
         Me.btnKeys10.Name = "btnKeys10"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys10, True)
         Me.btnKeys10.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys10.TabIndex = 4
         Me.btnKeys10.Text = "None"
@@ -202,8 +223,10 @@ Partial Class Splash
         '
         'btnKeys21
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys21, "Click and press key to set player 2's buzzer")
         Me.btnKeys21.Location = New System.Drawing.Point(121, 166)
         Me.btnKeys21.Name = "btnKeys21"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys21, True)
         Me.btnKeys21.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys21.TabIndex = 8
         Me.btnKeys21.Text = "None"
@@ -211,8 +234,10 @@ Partial Class Splash
         '
         'btnKeys22
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys22, "Click and press key to set player 2's buzzer")
         Me.btnKeys22.Location = New System.Drawing.Point(168, 166)
         Me.btnKeys22.Name = "btnKeys22"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys22, True)
         Me.btnKeys22.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys22.TabIndex = 10
         Me.btnKeys22.Text = "None"
@@ -220,8 +245,10 @@ Partial Class Splash
         '
         'btnKeys23
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys23, "Click and press key to set player 2's buzzer")
         Me.btnKeys23.Location = New System.Drawing.Point(215, 166)
         Me.btnKeys23.Name = "btnKeys23"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys23, True)
         Me.btnKeys23.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys23.TabIndex = 12
         Me.btnKeys23.Text = "None"
@@ -229,8 +256,10 @@ Partial Class Splash
         '
         'btnKeys24
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys24, "Click and press key to set player 2's buzzer")
         Me.btnKeys24.Location = New System.Drawing.Point(262, 166)
         Me.btnKeys24.Name = "btnKeys24"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys24, True)
         Me.btnKeys24.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys24.TabIndex = 14
         Me.btnKeys24.Text = "None"
@@ -238,8 +267,10 @@ Partial Class Splash
         '
         'btnKeys20
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys20, "Click and press key to set player 2's buzzer")
         Me.btnKeys20.Location = New System.Drawing.Point(74, 166)
         Me.btnKeys20.Name = "btnKeys20"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys20, True)
         Me.btnKeys20.Size = New System.Drawing.Size(41, 23)
         Me.btnKeys20.TabIndex = 5
         Me.btnKeys20.Text = "None"
@@ -247,22 +278,28 @@ Partial Class Splash
         '
         'txtPlayer1
         '
+        Me.hlpProvider.SetHelpString(Me.txtPlayer1, "Nickname of player 1")
         Me.txtPlayer1.Location = New System.Drawing.Point(74, 54)
         Me.txtPlayer1.Name = "txtPlayer1"
+        Me.hlpProvider.SetShowHelp(Me.txtPlayer1, True)
         Me.txtPlayer1.Size = New System.Drawing.Size(121, 20)
         Me.txtPlayer1.TabIndex = 0
         '
         'txtPlayer2
         '
+        Me.hlpProvider.SetHelpString(Me.txtPlayer2, "Nickname of player 2")
         Me.txtPlayer2.Location = New System.Drawing.Point(74, 82)
         Me.txtPlayer2.Name = "txtPlayer2"
+        Me.hlpProvider.SetShowHelp(Me.txtPlayer2, True)
         Me.txtPlayer2.Size = New System.Drawing.Size(121, 20)
         Me.txtPlayer2.TabIndex = 1
         '
         'btnColorReset
         '
+        Me.hlpProvider.SetHelpString(Me.btnColorReset, "Reset colors to default")
         Me.btnColorReset.Location = New System.Drawing.Point(259, 227)
         Me.btnColorReset.Name = "btnColorReset"
+        Me.hlpProvider.SetShowHelp(Me.btnColorReset, True)
         Me.btnColorReset.Size = New System.Drawing.Size(124, 23)
         Me.btnColorReset.TabIndex = 19
         Me.btnColorReset.Text = "Reset"
@@ -270,8 +307,10 @@ Partial Class Splash
         '
         'btnQsReset
         '
+        Me.hlpProvider.SetHelpString(Me.btnQsReset, "Reset time and number to default")
         Me.btnQsReset.Location = New System.Drawing.Point(201, 108)
         Me.btnQsReset.Name = "btnQsReset"
+        Me.hlpProvider.SetShowHelp(Me.btnQsReset, True)
         Me.btnQsReset.Size = New System.Drawing.Size(183, 23)
         Me.btnQsReset.TabIndex = 16
         Me.btnQsReset.Text = "Reset"
@@ -279,8 +318,10 @@ Partial Class Splash
         '
         'btnPlayerReset
         '
+        Me.hlpProvider.SetHelpString(Me.btnPlayerReset, "Reset player names to default")
         Me.btnPlayerReset.Location = New System.Drawing.Point(12, 108)
         Me.btnPlayerReset.Name = "btnPlayerReset"
+        Me.hlpProvider.SetShowHelp(Me.btnPlayerReset, True)
         Me.btnPlayerReset.Size = New System.Drawing.Size(183, 23)
         Me.btnPlayerReset.TabIndex = 15
         Me.btnPlayerReset.Text = "Reset"
@@ -288,8 +329,10 @@ Partial Class Splash
         '
         'btnKeys1Reset
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys1Reset, "Reset player 1's keys")
         Me.btnKeys1Reset.Location = New System.Drawing.Point(309, 137)
         Me.btnKeys1Reset.Name = "btnKeys1Reset"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys1Reset, True)
         Me.btnKeys1Reset.Size = New System.Drawing.Size(75, 23)
         Me.btnKeys1Reset.TabIndex = 17
         Me.btnKeys1Reset.Text = "Reset"
@@ -297,8 +340,10 @@ Partial Class Splash
         '
         'btnKeys2Reset
         '
+        Me.hlpProvider.SetHelpString(Me.btnKeys2Reset, "Reset player 2's keys")
         Me.btnKeys2Reset.Location = New System.Drawing.Point(309, 166)
         Me.btnKeys2Reset.Name = "btnKeys2Reset"
+        Me.hlpProvider.SetShowHelp(Me.btnKeys2Reset, True)
         Me.btnKeys2Reset.Size = New System.Drawing.Size(75, 23)
         Me.btnKeys2Reset.TabIndex = 18
         Me.btnKeys2Reset.Text = "Reset"
@@ -361,8 +406,10 @@ Partial Class Splash
         'lblGuide7
         '
         Me.lblGuide7.AutoSize = True
+        Me.hlpProvider.SetHelpString(Me.lblGuide7, "Click rectangle to set background color")
         Me.lblGuide7.Location = New System.Drawing.Point(9, 201)
         Me.lblGuide7.Name = "lblGuide7"
+        Me.hlpProvider.SetShowHelp(Me.lblGuide7, True)
         Me.lblGuide7.Size = New System.Drawing.Size(22, 13)
         Me.lblGuide7.TabIndex = 12
         Me.lblGuide7.Text = "BG"
@@ -370,8 +417,10 @@ Partial Class Splash
         'lblGuide8
         '
         Me.lblGuide8.AutoSize = True
+        Me.hlpProvider.SetHelpString(Me.lblGuide8, "Click rectangle to set text color")
         Me.lblGuide8.Location = New System.Drawing.Point(134, 201)
         Me.lblGuide8.Name = "lblGuide8"
+        Me.hlpProvider.SetShowHelp(Me.lblGuide8, True)
         Me.lblGuide8.Size = New System.Drawing.Size(28, 13)
         Me.lblGuide8.TabIndex = 12
         Me.lblGuide8.Text = "Text"
@@ -379,8 +428,10 @@ Partial Class Splash
         'lblGuide9
         '
         Me.lblGuide9.AutoSize = True
+        Me.hlpProvider.SetHelpString(Me.lblGuide9, "Click rectangle to set score color when correct")
         Me.lblGuide9.Location = New System.Drawing.Point(256, 201)
         Me.lblGuide9.Name = "lblGuide9"
+        Me.hlpProvider.SetShowHelp(Me.lblGuide9, True)
         Me.lblGuide9.Size = New System.Drawing.Size(41, 13)
         Me.lblGuide9.TabIndex = 12
         Me.lblGuide9.Text = "Correct"
@@ -388,8 +439,10 @@ Partial Class Splash
         'lblGuide10
         '
         Me.lblGuide10.AutoSize = True
+        Me.hlpProvider.SetHelpString(Me.lblGuide10, "Click rectangle to set score color when waiting for answer")
         Me.lblGuide10.Location = New System.Drawing.Point(9, 231)
         Me.lblGuide10.Name = "lblGuide10"
+        Me.hlpProvider.SetShowHelp(Me.lblGuide10, True)
         Me.lblGuide10.Size = New System.Drawing.Size(29, 13)
         Me.lblGuide10.TabIndex = 12
         Me.lblGuide10.Text = "Wait"
@@ -397,8 +450,10 @@ Partial Class Splash
         'lblGuide11
         '
         Me.lblGuide11.AutoSize = True
+        Me.hlpProvider.SetHelpString(Me.lblGuide11, "Click rectangle to set score color when wrong")
         Me.lblGuide11.Location = New System.Drawing.Point(134, 231)
         Me.lblGuide11.Name = "lblGuide11"
+        Me.hlpProvider.SetShowHelp(Me.lblGuide11, True)
         Me.lblGuide11.Size = New System.Drawing.Size(39, 13)
         Me.lblGuide11.TabIndex = 12
         Me.lblGuide11.Text = "Wrong"
@@ -446,8 +501,11 @@ Partial Class Splash
         Me.Controls.Add(Me.lblWindow)
         Me.Controls.Add(Me.imgFindProg)
         Me.Controls.Add(Me.ShapeContainer1)
+        Me.HelpButton = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Splash"
-        Me.Text = "Splash"
+        Me.Text = "Settings"
         Me.TopMost = True
         CType(Me.imgFindProg, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -495,4 +553,5 @@ Partial Class Splash
     Friend WithEvents lblGuide10 As System.Windows.Forms.Label
     Friend WithEvents lblGuide11 As System.Windows.Forms.Label
     Friend WithEvents tmrError As System.Windows.Forms.Timer
+    Friend WithEvents hlpProvider As System.Windows.Forms.HelpProvider
 End Class

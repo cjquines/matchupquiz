@@ -1,4 +1,6 @@
-﻿Public Class Main
+﻿Imports System.Text.RegularExpressions
+
+Public Class Main
     Private running As Boolean
     Private ans1, ans2, qnumber, qtimer, score1, score2, status As Integer
 
@@ -221,21 +223,25 @@
 
     Private Sub lblPlayer1_Click(sender As Object, e As EventArgs) Handles lblPlayer1.Click
         If Not running Then
-            Splash.player1 = InputBox("Input Player1's name, at most 16 characters", "Input Player1 name", "Player1")
-            If Splash.player1 = "" Then
-                Splash.player1 = "Player1"
+            Dim name = InputBox("Input player 1's name, at most 16 characters", "Input player 1 name", Splash.player1)
+            If Regex.IsMatch(name, "^[\w\d\s]+$") And name.Length <= 16 Then
+                Splash.player1 = name
+                bgdraw()
+            Else
+                MsgBox("Alphanumeric characters and spaces only, at most 16 characters.")
             End If
-            bgdraw()
         End If
     End Sub
 
     Private Sub lblPlayer2_Click(sender As Object, e As EventArgs) Handles lblPlayer2.Click
         If Not running Then
-            Splash.player2 = InputBox("Input Player2's name, at most 16 characters", "Input Player2 name", "Player2")
-            If Splash.player2 = "" Then
-                Splash.player2 = "Player2"
+            Dim name = InputBox("Input player 2's name, at most 16 characters", "Input player 2 name", Splash.player2)
+            If Regex.IsMatch(name, "^[\w\d\s]+$") And name.Length <= 16 Then
+                Splash.player2 = name
+                bgdraw()
+            Else
+                MsgBox("Alphanumeric characters and spaces only, at most 16 characters.")
             End If
-            bgdraw()
         End If
     End Sub
 End Class
