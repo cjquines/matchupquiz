@@ -155,7 +155,7 @@ Public Class Splash
         keys2Reset()
         qsReset()
         playerReset()
-        progname = "Drag the X to a window..."
+        progname = "Drag the crosshairs to a window..."
         redraw()
     End Sub
 
