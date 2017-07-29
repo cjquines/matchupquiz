@@ -20,3 +20,8 @@ C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Resources.resou
 C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Splash.resources
 C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.vbproj.GenerateResource.Cache
 C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.Main.resources
+C:\academic\programming\github\matchupquiz\bin\Debug\matchupquiz.exe.manifest
+C:\academic\programming\github\matchupquiz\bin\Debug\matchupquiz.application
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.TrustInfo.xml
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.exe.manifest
+C:\academic\programming\github\matchupquiz\obj\Debug\matchupquiz.application

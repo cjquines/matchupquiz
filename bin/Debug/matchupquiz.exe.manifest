@@ -47,14 +47,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="matchupquiz.exe" size="62976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="matchupquiz.exe" size="71168">
       <assemblyIdentity name="matchupquiz" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3f6Rw0MmW2xp14zCILmwbrI1Rxqek1GEE4u4AWvfckw=</dsig:DigestValue>
+        <dsig:DigestValue>s/cY69QAXc+E1W0yCmhAMPojqQVLyno15Y0HSlqx7iY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
