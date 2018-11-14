@@ -1,5 +1,5 @@
 # matchupquiz
-Shameless Mathcounts-style CDR program, built for VCSMS’s math department.
+A Mathcounts-style quiz program for Windows. Keeps track of scores and times. Switches slides automatically.
 
 ### Description
 
